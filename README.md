@@ -21,7 +21,7 @@
 
 `Solidity`
 
-_Libraries_
+_Other Software_
 
 1. We use the `Remix IDE` to build and test the Joint Savings Account Smart Contract created with `Solidity`. Because we use the web version of this IDE, we don’t need to install any software for this module.
 
