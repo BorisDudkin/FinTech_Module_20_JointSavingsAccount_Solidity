@@ -1,0 +1,3 @@
+* 	 (HEAD -> main, origin/main, origin/HEAD) solidity file completed, screenshots taken
+* 	 initial commit
+* 	 Initial commit

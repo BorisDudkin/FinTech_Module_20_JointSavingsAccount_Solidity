@@ -23,7 +23,7 @@
 
 _Libraries_
 
-1. We use the `Remix IDE` to build and test the Joint Savings Account Smart Contract created with `Solidity`. Because we use the web version of this IDE, we don’t need to install any software for this module
+1. We use the `Remix IDE` to build and test the Joint Savings Account Smart Contract created with `Solidity`. Because we use the web version of this IDE, we don’t need to install any software for this module.
 
    - [Remix IDE](https://remix.ethereum.org/) - to initate the application.
 
@@ -33,7 +33,7 @@ _Libraries_
 
 > Application summary<br/>
 
-The application consists of the sections specified below:<br/>
+The application consists of the following three sections:<br/>
 
 - Creating a JointSavings smart contract in Solidity:<br/>
 
@@ -47,9 +47,9 @@ The application consists of the sections specified below:<br/>
 
 - Compiling and Deploying the Contract:<br/>
 
-  - Once the smart contract is written, we compile it and make sure there are no errors occur in our code (the compilation is accompanied by a green check sign):<br/>
+  - Once the smart contract is written, we compile it and make sure there are no errors that occur in our code (the success is confirmed by the green check sign):<br/>
     ![compile](Execution_Results/compiled.JPG)<br/>
-  - We click the Deploy button to deploy our smart contract, and then confirm that it successfully deployed:<br/>
+  - We choose the virtual environment and click the Deploy button to deploy our smart contract, and then confirm that it is successfully deployed:<br/>
     ![compile](Execution_Results/deployed.JPG)<br/>
 
 - Interacting with the Deployed Smart Contract:<br/>
@@ -59,29 +59,25 @@ The application consists of the sections specified below:<br/>
     1. The setAccounts function used to define the authorized Ethereum address that will be able to withdraw funds from the contract:
        ![setAccounts](Execution_Results/setAccounts.JPG)<br/>
 
-    2. Test the deposit functionality of your smart contract by sending the following amounts of ether. After each transaction, use the contractBalance function to verify that the funds were added to your contract::
-       ![setAccounts](Execution_Results/setAccounts.JPG)<br/>
+    2. The deposit functionality of the smart contract was tested by sending<br/>
+       a) 1 ether as wei:<br/>
+       ![1ETH](Execution_Results/1ETH.JPG)<br/>
+       b) 10 ether as wei:<br/>
+       ![10ETH](Execution_Results/10ETH.JPG)<br/>
+       c) 5 ether:<br/>
+       ![5ETH](Execution_Results/5ETH.JPG)<br/>
 
-- Viewing the transaction on the Ganache interface:<br/>
-  When in Ganache, the user can:<br/>
-
-  1. Check the remainng balance on their address:<br/>
-     ![balance](Images/balance.JPG)<br/>
-  2. View the block in which the transaction is included - the address of the user and the selected employee, as well as the transfered amount in wei can be verified::<br/>
-     ![block](Images/block.JPG)<br/>
-
-  3. Similar information will be visible on the transaction itself:<br/>
-     ![tr1](Images/transaction.JPG)<br/>
-  4. Finally, when selecting the employee's address on the Transaction above, the adress' balance can be seen too:<br/>
-     ![tr2](Images/transaction_2.JPG)<br/>
-
-View the interface and an example of the process of sending ETH:<br/>
-![](Images/screen.gif)
+    3. The withdrawl functionality of the smart contract was tested by withdrawing<br/>
+       a) 5 ether from accountOne:<br/>
+       ![5ETHW](Execution_Results/withdr1.JPG)<br/>
+       b) 10 ether from accountTwo:<br/>
+       ![10ETHW](Execution_Results/withdr2.JPG)<br/>
+       NOTE: After each transaction, the contractBalance function was used to verify that the funds were withdrawn from the contract. Also, the lastToWithdraw and lastWithdrawAmount functions were used to verify that the address and amount were correct. Those checks can be seen on the above screenshots too.
 
 > Getting started<br/>
 
-- To use Cryptocurrency Payments Solution first clone the repository to your PC.<br/>
-- Use `streamlit run fintech_finder.py` as per the instructions in the [Installation Guide](#installation-guide) to run the application.<br/>
+- To deploy Joint Savings Account Smart Contract first clone the repository to your PC to obtain the joint_savings Solidity file containing the contract.<br/>
+- To deploy the contract open the cloned joint_savings.sol file in the Remix IDE and follow the instructions from the [Usage](#usage) section. <br/>
 
 ---
 
