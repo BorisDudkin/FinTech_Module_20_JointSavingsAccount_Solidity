@@ -1,6 +1,6 @@
 # Joint Savings Account Smart Contract
 
-### The Cryptocurrency Payments Solution allows a user to make ETH denominated payments to individuals, who have an ETH account (and address). The application is equiped with a user-friendly web interface that provides a functionality to veiw the user's ETH balance, select individuals for making payments, apply the hours of their service and calculate the corresponding amount of ETH transfer and, finally, send a payment and verify the transaction.
+### Joint Savings Account automates the creation of joint savings accounts. It is a Solidity smart contract that accepts two user addresses. These addresses control a joint savings account. Joint Savings Account Smart Contract uses ether management functions to implement a financial institution’s requirements for providing the the joint savings account specific features. These features consist of the ability to deposit and withdraw funds from the account.
 
 ---
 
@@ -11,119 +11,21 @@
 ## Table of contents
 
 1. [Technologies](#technologies)
-2. [Installation Guide](#installation-guide)
-3. [Usage](#usage)
-4. [Contributors](#contributors)
-5. [License](#license)
+2. [Usage](#usage)
+3. [Contributors](#contributors)
+4. [License](#license)
 
 ---
 
 ## Technologies
 
-`Python 3.9`
+`Solidity`
 
 _Libraries_
 
-1. `Pandas` is a Python package that provides fast, flexible, and expressive data structures designed to make working with large sets of data easy and intuitive.
+1. We use the `Remix IDE` to build and test the Joint Savings Account Smart Contract created with `Solidity`. Because we use the web version of this IDE, we don’t need to install any software for this module
 
-   - [pandas](https://github.com/pandas-dev/pandas) - for the documentation, installation guide and dependencies.
-
-2. `Streamlit` is a library that allows developers to build web applications with live user input.
-
-   - [Streamlit](https://streamlit.io/) - to read more about deploying, installing and customizing.<br/>
-
-3. `Web3.py` is a Python library for connecting to and performing operations on Ethereum-based blockchains.
-
-   - [Web3.py](https://web3py.readthedocs.io/en/stable/overview.html) - to get a sense of everything web3.py can do and to serve as a quick reference guide, including a summary of each feature with links to learn more.
-
-4. `Mnemonic` is a Python library that provides access to the tools we’ll use to test Ethereum-based applications.
-
-   - [Mnemonic](https://pypi.org/project/mnemonic/) - to read about the implementation of a mnemonic code or mnemonic sentence – a group of easy to remember words – for the generation of deterministic wallets.
-
-5. `Bip44` is a Python implementation for deriving hierarchical deterministic wallets from a seed phrase based on the BIP-44 standard.
-
-   - [Bip44](https://pypi.org/project/bip44/) - to read about the installation and a quick start.
-
-6. `Ganache` is a program that allows you to quickly set up a local blockchain, which you can use to test and develop smart contracts.
-
-   - [Ganache](https://trufflesuite.com/ganache/) - to read about the installation and the initiation of the program.
-
----
-
-## Installation Guide
-
-The application must be started from the terminal using Streamlit, once in the directory of the application:<br/>
-
-```python
-streamlit run fintech_finder.py
-```
-
-### Library Installations
-
-Before using the application first install the following dependencies by using your terminal:
-
-> Option 1 - Intsall needed libraries with requirements.txt file included in the reporsitory. For this option:<br/>
-
-- install [pipreqs](https://pypi.org/project/pipreqs/):
-
-  ```python
-  pip install pipreqs
-  ```
-
-- Install all libraries that we have in requirements.txt::
-
-  ```python
-  pip install -r requirements.txt:
-  ```
-
-> Option 2 - Install each library individually:<br/>
-
-To install pandas run:
-
-```python
-pip install pandas
-```
-
-```python
-# or conda
-conda install pandas
-```
-
-To install Streamlit, in Terminal run:
-
-```python
-pip install streamlit
-```
-
-Confirm the installation of the Streamlit package by running the following commands in Terminal:
-
-```python
- conda list streamlit
-```
-
-To install Web3.py, in Terminal run:
-
-```python
-pip install web3==5.17
-```
-
-To install Mnemonic, in Terminal run:
-
-```python
-pip install mnemonic
-```
-
-To install Bip44, in Terminal run:
-
-```python
-pip install Bip44
-```
-
-To install and initiate Ganache:
-
-- Installation: follow the instructions on the Ganache download page https://trufflesuite.com/ganache/ to download and install this tool on your local machine.
-- Create a Workspace: when you open Ganache, you are presented with two options for creating a workspace: Quickstart Ethereum and New Workspace Ethereum. Click Quickstart Ethereum:
-  ![Ganache](Images/Ganache.png)
+   - [Remix IDE](https://remix.ethereum.org/) - to initate the application.
 
 ---
 
@@ -131,16 +33,34 @@ To install and initiate Ganache:
 
 > Application summary<br/>
 
-- View ETH address and available ETH balance:<br/>
-  Before making a payment, the users can view an ETH balance available on their ETH address, from which the payment will be made.<br/>
+The application consists of the sections specified below:<br/>
 
-- Select a person to make a payment to:<br/>
+- Creating a JointSavings smart contract in Solidity:<br/>
 
-  An overview of the employees is provided on the main page and a functionality to choose an individual, to whom the ETH will be transfered, is provided on the sidebar of the application. Once the employee is selected, the user can insert an amount of hours corresponding to the time of service provided by the selected employee. The amount of transfer to be made is calculated based on the hourly wages of the employee and the hours of service and is displayed under the _Total Wages in Ether_<br/>
+  - A set of variables defined inside the contract.<br/>
+  - The following functions are included:
 
-- Sending a transaction:<br/>
-  Once all the information above becomes available, the user can send the transaction. The validated transaction hash will be presented once the payment is made:<br/>
-  ![screen](Images/screen.JPG)<br/>
+    1.  Withdraw function;
+    2.  Deposit function;
+    3.  SetAccounts function;
+    4.  A Fallback function to ensure the contract can store ether that’s sent from outside the deposit function.<br/>
+
+- Compiling and Deploying the Contract:<br/>
+
+  - Once the smart contract is written, we compile it and make sure there are no errors occur in our code (the compilation is accompanied by a green check sign):<br/>
+    ![compile](Execution_Results/compiled.JPG)<br/>
+  - We click the Deploy button to deploy our smart contract, and then confirm that it successfully deployed:<br/>
+    ![compile](Execution_Results/deployed.JPG)<br/>
+
+- Interacting with the Deployed Smart Contract:<br/>
+
+  - After deploying the contract the following functionalities were tested:<br/>
+
+    1. The setAccounts function used to define the authorized Ethereum address that will be able to withdraw funds from the contract:
+       ![setAccounts](Execution_Results/setAccounts.JPG)<br/>
+
+    2. Test the deposit functionality of your smart contract by sending the following amounts of ether. After each transaction, use the contractBalance function to verify that the funds were added to your contract::
+       ![setAccounts](Execution_Results/setAccounts.JPG)<br/>
 
 - Viewing the transaction on the Ganache interface:<br/>
   When in Ganache, the user can:<br/>
